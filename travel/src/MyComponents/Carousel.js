@@ -14,7 +14,7 @@ export default function Carousel() {
                 <Card.Body>
                     <Card.Title>SAFETY</Card.Title>
                     <Card.Text>
-                    With Safety+ we have brought in a set of measures like Sanitized buses, mandatory masks etc. to ensure you travel safely.
+                    With Safety we have brought in a set of measures like Sanitized buses, mandatory masks etc. to ensure you travel safely.
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -30,7 +30,7 @@ export default function Carousel() {
             <Card style={{ width: '10rem',margin: '50px'}}>
                 <Card.Img variant="top" src={img3} />
                 <Card.Body>
-                    <Card.Title>CLOWEST PRICES</Card.Title>
+                    <Card.Title>LOWEST PRICES</Card.Title>
                     <Card.Text>
                     We always give you the lowest price with the best partner offers.
                     </Card.Text>
