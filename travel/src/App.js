@@ -19,21 +19,22 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/" render={()=>{
+          <Route exact path="/" render={() => {
             return (
-            <>
-            <Main />
-            <Carousel />
-            </> ) 
+              <>
+                <Main />
+                <Carousel />
+              </>)
           }}>
           </Route>
-          <Route exact path="/about">
+          <Route exact path="/about" component={About}>
             <About />
           </Route>
-          <Route exact path="/Login">
-          <Login />
-        </Route>
+          <Route exact path="/Login" component={Login}>
+            <Login />
+          </Route>
         </Switch>
+
         <Footer />
       </Router>
     </>
