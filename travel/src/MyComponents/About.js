@@ -1,10 +1,6 @@
 import React from 'react'
 import about from '../about.jpg'
-import img1 from '../img1.jpg'
-import img2 from '../img2.jpg'
-import img3 from '../img3.jpg'
-
-import { Card, CardGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 export const About = () => {
     return (
@@ -28,7 +24,7 @@ export const About = () => {
 
                 </div>
                 <div className="col-sm-6">
-                    <img src={about} className="imag-responsive" style={{ width: '100%', height: '110%' }} />
+                    <img src={about} alt="about" className="imag-responsive" style={{ width: '100%', height: '110%' }} />
                 </div>
             </div>
             <h3 style={{textAlign:'center',fontFamily:'cursive'}}>Radiant info Advantage</h3>

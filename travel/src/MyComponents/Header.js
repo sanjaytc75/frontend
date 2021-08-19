@@ -26,7 +26,7 @@ export default function Header() {
             </ul>
           </div>
           <form class="form-inline">
-              <button class="btn btn-light my-2 my-sm-0" type="Login">Login</button>
+              <button class="btn btn-light my-2 my-sm-0" type="Login"> <Link style={{textDecoration: 'none'}} to="/Login"> Login </Link>  </button>
             </form>
         </div>
       </nav>
