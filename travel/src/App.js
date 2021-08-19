@@ -1,4 +1,3 @@
-import logo from './travel.png';
 import './App.css';
 import Header from "./MyComponents/Header";
 import { Footer } from "./MyComponents/Footer";
@@ -11,13 +10,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 function App() {
   return (
     <>
-
       <Router>
         <Header />
         <Switch>
@@ -26,8 +23,7 @@ function App() {
             <>
             <Main />
             <Carousel />
-            </> )
-            
+            </> ) 
           }}>
           </Route>
           <Route exact path="/about">
@@ -36,7 +32,6 @@ function App() {
         </Switch>
         <Footer />
       </Router>
-
     </>
   );
 }
