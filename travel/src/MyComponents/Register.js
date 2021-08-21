@@ -1,13 +1,12 @@
 import React from 'react'
 import { Button, Form, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FacebookLoginButton,GoogleLoginButton } from 'react-social-login-buttons';
 
-export default function Login() {
+export default function Register() {
     return (
         <div className="container" style={{ width:'100%',padding:'15px',margin:'auto',height:'100%', maxWidth:"330px"}}>
             <form >
-                <h1 style={{textAlign:'center'}}>welcome!</h1>
+                <h1 style={{textAlign:'center'}}>Register!</h1>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -17,19 +16,16 @@ export default function Login() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control type="password" placeholder="Confirm Password" />
                 </Form.Group>
+                <div className="text-center pb-3">
+                <Form.Check type="checkbox" className="text-center pt-3" style={{display:'inline',paddingRight:'10px'}}/><Link to="/TandC">Terms & Condition</Link>
+                </div>
                 <Button style={{width:'100%'}} className="btn-dark btn-block">
-                    Login
+                    Rigister
                 </Button>
-                <div className="text-center pt-3">
-                    or continue with your social account
-                </div>
-                <FacebookLoginButton className="mt-3 mb-3"/>
-                <GoogleLoginButton className="mt-3 mb-3"/>
-                <div className="text-center pt-3" style={{display:'inline'}}>
-                    New user?<Link className="text-center" to="/Register">Register</Link>
-                </div>
             </form>
 
         </div>

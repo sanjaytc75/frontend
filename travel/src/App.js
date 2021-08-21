@@ -6,6 +6,7 @@ import Main from "./MyComponents/Main";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from './MyComponents/Carousel';
 import Login from './MyComponents/Login';
+import Register from './MyComponents/Register';
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/Login" component={Login}>
             <Login />
+          </Route>
+          <Route exact path="/Register" component={Register}>
+            <Register />
           </Route>
         </Switch>
 
