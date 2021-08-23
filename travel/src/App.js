@@ -33,6 +33,7 @@ function App() {
           </Route>
           <Route exact path="/Login" component={Login}>
             <Login />
+            <facebook />
           </Route>
           <Route exact path="/Register" component={Register}>
             <Register />
