@@ -3,6 +3,10 @@ import FacebookLogin from 'react-facebook-login';
 import { Button, Form, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ImFacebook } from "react-icons/im";
+import GoogleLogin from 'react-google-login';
+import { GoogleLoginButton } from 'react-social-login-buttons';
+
+
 
 export default class Login extends Component {
   state = {
@@ -27,9 +31,16 @@ export default class Login extends Component {
 
   componentClicked = () => console.log("clicked");
 
+  responseGoogle=(response)=>{
+    console.log(response);
+    console.log(response.profileObj);
+  }
+
   render() {
 
     let fbContent;
+    let googlecontent;
+    
 
     if (this.state.isLoggedIn) {
       fbContent = (
@@ -48,12 +59,25 @@ export default class Login extends Component {
           fields="name,email,picture"
           onClick={this.componentClicked}
           icon={< ImFacebook/>}
-          size="small"
+          size="medium"
           
         //callback={this.responseFacebook}
         />
       );
     }
+    googlecontent = (
+      <GoogleLogin 
+          clientId="981202263286-o5o7kckunac0q5b7t45quedjhi1p68gg.apps.googleusercontent.com"
+          buttonText="Login with Google"
+          render={renderProps => (
+            <GoogleLoginButton  onClick={renderProps.onClick} disabled={renderProps.disabled}>LOGIN WITH GOOGLE</GoogleLoginButton>
+          )}
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+          cookiePolicy={'single_host_origin'}
+          />
+
+    )
 
     return (
       <div className="container" style={{ width: '100%', padding: '15px', margin: 'auto', height: '100%', maxWidth: "330px" }}>
@@ -76,7 +100,10 @@ export default class Login extends Component {
           <div className="text-center pt-3">
             or continue with your social account
           </div>
-          <div style={{textAlign:"center", paddingTop:"10px"}}>{fbContent}</div>
+          <div >
+          <div style={{ textAlign:"center",paddingTop:"10px"}}>{fbContent}</div>
+          <div style={{paddingTop:"20px",width:"266px",fontSize:"10px",marginLeft:"17px"}}>{googlecontent}</div>
+          </div>
           <br/>
           <div className="text-center " >
             New user?<Link className="text-center" to="/Register">Register</Link>
