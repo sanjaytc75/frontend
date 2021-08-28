@@ -4,7 +4,7 @@ import { Button, Form, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ImFacebook } from "react-icons/im";
 import GoogleLogin from 'react-google-login';
-import { GoogleLoginButton } from 'react-social-login-buttons';
+//import { GoogleLoginButton } from 'react-social-login-buttons';
 
 
 
@@ -15,13 +15,6 @@ export default class Login extends Component {
     name: "",
     email: "",
     picture: ""
-  };
-  state1 = {
-    isLogIn: false,
-    ID: "",
-    nameg: "",
-    emailg: "",
-    pictureg: ""
   };
 
   responseFacebook = response => {
@@ -40,14 +33,6 @@ export default class Login extends Component {
 
   responseGoogle= response =>{
     console.log(response);
-    console.log(response.profileObj);
-    this.setState({
-      isLogIn: true,
-      ID: response.userID,
-      nameg: response.name,
-      emailg: response.email,
-      pictureg: response.picture.data.url
-    });
   }
 
   render() {
@@ -70,43 +55,36 @@ export default class Login extends Component {
         <FacebookLogin
           appId="698270781569210"
           autoLoad={false}
+          //buttonText="login with Facebook"
           fields="name,email,picture"
           onClick={this.componentClicked}
           icon={< ImFacebook/>}
-          size="medium"
+          size="small"
           
         callback={this.responseFacebook}
         />
       );
     }
-    if (this.state1.isLogIn) {
-      googlecontent = (
-        <div>
-          
-          <h2>Welcome {this.state1.nameg}</h2>
-          Email: {this.state1.emailg}
-        </div>
-      );
-    }else {
+    
+    
     googlecontent = (
       <GoogleLogin 
           clientId="981202263286-o5o7kckunac0q5b7t45quedjhi1p68gg.apps.googleusercontent.com"
           buttonText="Login with Google"
-          render={renderProps => (
-            <GoogleLoginButton  onClick={renderProps.onClick} disabled={renderProps.disabled}>LOGIN WITH GOOGLE</GoogleLoginButton>
-          )}
+          //render={renderProps => (
+            //<GoogleLoginButton >LOGIN WITH GOOGLE</GoogleLoginButton>
+         //)}
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
-          onClick={this.componentClicked}
           cookiePolicy={'single_host_origin'}
-          callback={this.responseGoogle}
+          //callback={this.responseGoogle}
           />
     );
-          }
           
     return (
-      <div className="container" style={{ width: '100%', padding: '15px', margin: 'auto', height: '100%', maxWidth: "330px" }}>
+      <div className="container" style={{ width: '100%', padding: '15px', margin: 'auto', height: '100%', maxWidth: "600px" }}>
         <form >
+          <div style={{maxWidth:"330px",width: '100%', padding: '15px', margin: 'auto', height: '100%'}}>
           <h1 style={{ textAlign: 'center' }}>welcome!</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
@@ -122,13 +100,11 @@ export default class Login extends Component {
           <Button style={{ width: '100%' }} className="btn-dark btn-block">
             Login
           </Button>
-          <div className="text-center pt-3">
+          </div>
+          <div className="text-center pt-2">
             or continue with your social account
           </div>
-          <div >
-          <div style={{ textAlign:"center",paddingTop:"10px"}}>{fbContent}</div>
-          <div style={{paddingTop:"20px",width:"266px",fontSize:"10px",marginLeft:"17px"}}>{googlecontent}</div>
-          </div>
+          <div className="m-2" style={{textAlign:"center"}}>{fbContent} OR {googlecontent}</div>
           <br/>
           <div className="text-center " >
             New user?<Link className="text-center" to="/Register">Register</Link>
