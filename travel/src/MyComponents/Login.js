@@ -16,9 +16,16 @@ export default class Login extends Component {
     email: "",
     picture: ""
   };
+  state1 = {
+    isLogIn: false,
+    ID: "",
+    nameg: "",
+    emailg: "",
+    pictureg: ""
+  };
 
   responseFacebook = response => {
-    // console.log(response);
+     console.log(response);
 
     this.setState({
       isLoggedIn: true,
@@ -31,9 +38,16 @@ export default class Login extends Component {
 
   componentClicked = () => console.log("clicked");
 
-  responseGoogle=(response)=>{
+  responseGoogle= response =>{
     console.log(response);
     console.log(response.profileObj);
+    this.setState({
+      isLogIn: true,
+      ID: response.userID,
+      nameg: response.name,
+      emailg: response.email,
+      pictureg: response.picture.data.url
+    });
   }
 
   render() {
@@ -61,10 +75,19 @@ export default class Login extends Component {
           icon={< ImFacebook/>}
           size="medium"
           
-        //callback={this.responseFacebook}
+        callback={this.responseFacebook}
         />
       );
     }
+    if (this.state1.isLogIn) {
+      googlecontent = (
+        <div>
+          
+          <h2>Welcome {this.state1.nameg}</h2>
+          Email: {this.state1.emailg}
+        </div>
+      );
+    }else {
     googlecontent = (
       <GoogleLogin 
           clientId="981202263286-o5o7kckunac0q5b7t45quedjhi1p68gg.apps.googleusercontent.com"
@@ -74,11 +97,13 @@ export default class Login extends Component {
           )}
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
+          onClick={this.componentClicked}
           cookiePolicy={'single_host_origin'}
+          callback={this.responseGoogle}
           />
-
-    )
-
+    );
+          }
+          
     return (
       <div className="container" style={{ width: '100%', padding: '15px', margin: 'auto', height: '100%', maxWidth: "330px" }}>
         <form >

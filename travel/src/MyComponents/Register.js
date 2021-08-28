@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form,Modal} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,7 +35,7 @@ export default class Register extends Component {
                         <Form.Control type="password" placeholder="Confirm Password" />
                     </Form.Group>
                     <div className="text-center pb-3">
-                        <Form.Check type="checkbox" className="text-center pt-3" style={{ display: 'inline', paddingRight: '10px' }} /><Button  className="btn-dark btn-block" onClick={() => { this.handleModal() }}>Terms & Conditions</Button>
+                        <Form.Check type="checkbox" className="text-center pt-3" style={{ display: 'inline', paddingRight: '10px' }} /><Link style={{fontSize:"13px",textDecoration:"none",color:"gray"}} onClick={() => { this.handleModal() }}>Terms & Conditions</Link>
                         <Modal show={this.state.show} onHide={()=>this.handleModal()}>
                             <Modal.Header closeButton>Terms and Conditions</Modal.Header>
                             <Modal.Body>
