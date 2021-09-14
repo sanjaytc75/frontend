@@ -8,6 +8,7 @@ import GoogleLogin from 'react-google-login';
 
 
 
+
 export default class Login extends Component {
   state = {
     isLoggedIn: false,
@@ -16,6 +17,7 @@ export default class Login extends Component {
     email: "",
     picture: ""
   };
+  
 
   responseFacebook = response => {
      console.log(response);
@@ -61,6 +63,7 @@ export default class Login extends Component {
           icon={< ImFacebook/>}
           size="small"
           
+          
         callback={this.responseFacebook}
         />
       );
@@ -78,6 +81,7 @@ export default class Login extends Component {
           onFailure={this.responseGoogle}
           cookiePolicy={'single_host_origin'}
           //callback={this.responseGoogle}
+          
           />
     );
           
@@ -97,14 +101,14 @@ export default class Login extends Component {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
           </Form.Group>
-          <Button style={{ width: '100%' }} className="btn-dark btn-block">
-            Login
+          <Button style={{ width: '100%' }} className="btn-dark btn-block" href="/Home">
+          LOGIN
           </Button>
           </div>
           <div className="text-center pt-2">
             or continue with your social account
           </div>
-          <div className="m-2" style={{textAlign:"center"}}>{fbContent} OR {googlecontent}</div>
+          <div className="m-2" style={{textAlign:"center"}}> {fbContent}  OR {googlecontent}</div>
           <br/>
           <div className="text-center " >
             New user?<Link className="text-center" to="/Register">Register</Link>
