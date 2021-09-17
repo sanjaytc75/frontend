@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from './MyComponents/Carousel';
 import Login from './MyComponents/Login';
 import Register from './MyComponents/Register';
-import Header2 from './MyComponents/Header2';
 import Home from './MyComponents/Home';
 import React from "react";
 import {
@@ -16,7 +15,10 @@ import {
   Route,
 } from "react-router-dom";
 
+
+
 function App() {
+  
   return (
     <>
       <Router>
@@ -43,14 +45,9 @@ function App() {
           <Header />
             <Register />
           </Route>
-          <Route exact path="/Home" render={() => {
-            return (
-              <>
-              <Header2 />
-              <Home />
-                <Main />
-              </>)
-          }}></Route>
+          <Route exact path="/Home" component={Home}>
+          <Home />
+            </Route>
         </Switch>
         <Footer />
       </Router>

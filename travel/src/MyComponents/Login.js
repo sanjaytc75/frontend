@@ -8,7 +8,6 @@ import GoogleLogin from 'react-google-login';
 
 
 
-
 export default class Login extends Component {
   state = {
     isLoggedIn: false,
@@ -17,11 +16,12 @@ export default class Login extends Component {
     email: "",
     picture: ""
   };
+
   
 
   responseFacebook = response => {
      console.log(response);
-
+    
     this.setState({
       isLoggedIn: true,
       userID: response.userID,
@@ -120,3 +120,5 @@ export default class Login extends Component {
     )
   }
 }
+
+

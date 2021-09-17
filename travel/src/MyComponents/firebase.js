@@ -1,4 +1,5 @@
-import firebase from 'firebase'; 
+import firebase from "firebase";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCbxvMd7eGo2XX3PQxNUXb2ggIiZwo71mo",
     authDomain: "travel-aeb28.firebaseapp.com",
@@ -8,6 +9,10 @@ const firebaseConfig = {
     appId: "1:101521016101:web:6d0c2f17b2ec0aefe446cc",
     measurementId: "G-7QDQX3V2MN"
   };
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-export default firebase;
+
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
+  const db =firebaseApp.firestore();
+  const auth = firebase.auth();
+
+  export {auth};
+  export default db;

@@ -1,9 +1,19 @@
 import React from 'react'
+import Header2 from './Header2'
+import Main from './Main'
 
 export default function Home() {
+
     return (
         <div>
-            <h1 style={{padding:"15px"}}>Welcome </h1>
+            <Header2 />
+
+             
+            <Main />
         </div>
+        
+
+        
     )
 }
+
